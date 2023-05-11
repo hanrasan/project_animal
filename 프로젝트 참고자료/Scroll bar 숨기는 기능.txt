@@ -1,0 +1,38 @@
+* Android Studio 에서 Scroll bar 숨기는 기능?
+
+1. XML에서 스크롤 바 숨기기:
+스크롤 뷰나 리사이클러 뷰의 XML 레이아웃 파일에서 다음과 같은 속성을 사용하여 좌우 스크롤 바를 숨길 수 있습니다:
+
+- android:scrollbars="none": 스크롤 바를 숨깁니다.
+- android:fadeScrollbars="false": 스크롤 바를 항상 표시합니다.
+예를 들어, HorizontalScrollView를 사용하는 경우:
+
+<HorizontalScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    android:fadeScrollbars="false">
+
+    <!-- 스크롤될 컨텐츠를 추가합니다 -->
+
+</HorizontalScrollView>
+
+이렇게 설정하면 좌우 스크롤 바가 숨겨지고, 사용자가 스크롤을 시작하거나 뷰가 스크롤 가능한 경우 스크롤 바가 다시 표시됩니다.
+
+2. 프로그래밍적으로 스크롤 바 숨기기:
+
+
+자바 또는 코틀린 코드에서 스크롤 뷰나 리사이클러 뷰에 대해 다음과 같은 메서드를 사용하여 좌우 스크롤 바를 숨길 수 있습니다:
+
+- setHorizontalScrollBarEnabled(false): 가로 스크롤 바를 숨깁니다.
+- setVerticalScrollBarEnabled(false): 세로 스크롤 바를 숨깁니다.
+예를 들어, HorizontalScrollView를 사용하는 경우:
+
+-> Java
+HorizontalScrollView horizontalScrollView = findViewById(R.id.horizontalScrollView);
+horizontalScrollView.setHorizontalScrollBarEnabled(false);
+
+-> Kotlin
+val horizontalScrollView = findViewById<HorizontalScrollView>(R.id.horizontalScrollView)
+horizontalScrollView.isHorizontalScrollBarEnabled = false
+

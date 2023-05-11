@@ -1,0 +1,33 @@
+* 한개의 화면에서 프래그먼트 변경
+
+1. 프래그먼트 컨테이너 사용: 화면 내에 프래그먼트를 호스팅할 수 있는 뷰 그룹인 프래그먼트 컨테이너를 추가합니다. 일반적으로 FrameLayout이나 LinearLayout 등을 사용합니다.
+
+<FrameLayout
+    android:id="@+id/fragmentContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+
+이 프래그먼트 컨테이너는 프래그먼트를 동적으로 추가, 제거 또는 교체하는 데 사용됩니다.
+
+2. 프래그먼트 관리: 액티비티나 다른 프래그먼트 내에서 프래그먼트를 관리하기 위해 FragmentManager를 사용합니다. FragmentManager는 프래그먼트를 추가, 제거, 교체할 수 있는 기능을 제공합니다.
+
+- 프래그먼트 추가: FragmentManager를 사용하여 프래그먼트를 추가합니다.
+MyFragment fragment = new MyFragment();
+FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+transaction.add(R.id.fragmentContainer, fragment);
+transaction.commit();
+
+- 프래그먼트 제거: FragmentManager를 사용하여 프래그먼트를 제거합니다.
+FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+transaction.remove(fragment);
+transaction.commit();
+
+- 프래그먼트 교체: FragmentManager를 사용하여 프래그먼트를 교체합니다.
+MyFragment newFragment = new MyFragment();
+FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+transaction.replace(R.id.fragmentContainer, newFragment);
+transaction.commit();
+
+이렇게하면 한 개의 화면에서 여러 개의 프래그먼트를 동적으로 변경할 수 있습니다. 프래그먼트 간의 전환은 액티비티나 기존 프래그먼트 내에서 관리되며, 프래그먼트 컨테이너를 통해 해당 변경을 수행합니다.
+
+
